@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CustomSpinnerLesson</string>
+
+    <string name="apple">Elma</string>
+    <string name="banana">Muz</string>
+    <string name="cherry">Kiraz</string>
+    <string name="pineapple">Ananas</string>
+    <string name="pear">Armut</string>
+</resources>
