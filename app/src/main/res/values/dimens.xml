@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="action_icons_margin">5dp</dimen>
+    <dimen name="video_duration_padding_start_end">5dp</dimen>
+
+</resources>

@@ -2,17 +2,39 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:id="@+id/clMain">
+    tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnGoUsersPage"
-        android:layout_width="match_parent"
-        android:text="Kullanicilar Sayfasi"
+    <LinearLayout
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnGoUsersPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kullanicilar Sayfasi"
+             />
+
+        <Button
+            android:id="@+id/btnGoYoutubePage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Youtube"
+
+             />
+        <Button
+            android:id="@+id/btnGoRecyclerViewInsertRemoveUpdateActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Fruit Page"
+
+            />
+    </LinearLayout>
 
     <Spinner
         android:id="@+id/spFruits"

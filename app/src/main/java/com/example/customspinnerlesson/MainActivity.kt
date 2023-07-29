@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var spFruits:Spinner
     lateinit var clMain:ConstraintLayout
     lateinit var btnGoUsersPage:Button
+    lateinit var btnGoYoutubePage:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +34,11 @@ class MainActivity : AppCompatActivity() {
         spFruits = findViewById(R.id.spFruits)
         clMain = findViewById(R.id.clMain)
         btnGoUsersPage = findViewById(R.id.btnGoUsersPage)
+        btnGoYoutubePage = findViewById(R.id.btnGoYoutubePage)
 
 
+        findViewById<Button>(R.id.btnGoRecyclerViewInsertRemoveUpdateActivity).setOnClickListener { startActivity(Intent(this, RecyclerViewInsertRemoveUpdateActivity::class.java)) }
+        btnGoYoutubePage.setOnClickListener { startActivity(Intent(this, YoutubeActivity::class.java)) }
 
         spFruits.adapter = CustomSpinnerAdapter(this, fruits)
 

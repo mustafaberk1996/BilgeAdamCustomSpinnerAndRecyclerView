@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivVideoPreview"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/sample_video_picture"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/video_duration_background"
+        android:paddingStart="@dimen/video_duration_padding_start_end"
+        android:paddingEnd="@dimen/video_duration_padding_start_end"
+        android:id="@+id/tvDuration"
+        android:text="12:44"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/ivVideoPreview"
+        app:layout_constraintRight_toRightOf="@id/ivVideoPreview" />
+
+
+    <ImageView
+        android:id="@+id/ivPublisherProfile"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/publisherprofile"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivVideoPreview" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:text="GÜLERSEN, KAYBEDERSİN! | Soğuk Savaş S2E24 w/ Cem İşçiler, Dilek Çelebi Tunç &amp; Onur GökçekGÜLERSEN, KAYBEDERSİN! | Soğuk Savaş S2E24 w/ Cem İşçiler, Dilek Çelebi Tunç &amp; Onur Gökçek"
+        app:layout_constraintLeft_toRightOf="@id/ivPublisherProfile"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivVideoPreview" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
