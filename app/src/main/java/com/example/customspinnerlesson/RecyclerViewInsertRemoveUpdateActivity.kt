@@ -3,18 +3,25 @@ package com.example.customspinnerlesson
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 
 class RecyclerViewInsertRemoveUpdateActivity : AppCompatActivity() {
 
-
-    val fruits = mutableListOf("Elma", "Armut", "Kiraz", "Muz", "Visne")
+data class Fruit(val id:Int,var name:String)
+    val fruits = mutableListOf(
+        Fruit(1,"Elma"),
+        Fruit(2,"Armut"),
+        Fruit(3,"Muz"),
+        Fruit(4,"Karpuz")
+    )
 
 
     lateinit var rvFruits: RecyclerView
     lateinit var btnInsert:Button
     lateinit var btnRemove:Button
+    lateinit var btnUpdate:Button
     lateinit var fruitTxt:EditText
 
 
@@ -26,31 +33,42 @@ class RecyclerViewInsertRemoveUpdateActivity : AppCompatActivity() {
         btnInsert=findViewById(R.id.btnInsert)
         btnRemove=findViewById(R.id.btnRemove)
         fruitTxt=findViewById(R.id.etFruitName)
+        btnUpdate=findViewById(R.id.btnUpdate)
 
 
+        val adapter = FruitAdapter(this, fruits){fruit,position->
+            AlertDialog.Builder(this).setTitle("Secilen Meyve").setMessage("${fruit.name}, position:$position").create().show()
+        }
 
-        val adapter = FruitAdapter(this, fruits)
         rvFruits.adapter = adapter
 
         btnInsert.setOnClickListener {
-            fruits.add(fruitTxt.text.toString())
+            fruits.add(Fruit(5,"Ananas"))
             //adapter.notifyDataSetChanged()
-            adapter.notifyItemInserted(fruits.lastIndex)
+            adapter.notifyItemInserted(5)
         }
 
         btnRemove.setOnClickListener {
             val fruit = fruitTxt.text.toString()
 
-            if (fruits.contains(fruit)){
+
+            fruits.firstOrNull { it.name.equals(fruit,ignoreCase = true) }?.let {
                 //kaldima isleme
 
-                val removedFruitIndex = fruits.indexOf(fruit)
-                fruits.remove(fruit)
+                val removedFruitIndex = fruits.indexOf(it)
+                fruits.remove(it)
                 adapter.notifyItemRemoved(removedFruitIndex)
-
             }
 
 
+
+        }
+
+        btnUpdate.setOnClickListener {
+            val fruit = fruitTxt.text.toString()
+            val updatedFruit=fruits[0]
+            updatedFruit.name=fruit
+            adapter.notifyItemChanged(0)
         }
 
 

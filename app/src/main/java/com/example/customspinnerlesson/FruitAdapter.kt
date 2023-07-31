@@ -7,7 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class FruitAdapter(val context: Context, val fruits: List<String>) :
+class FruitAdapter(
+    val context: Context,
+    val fruits: MutableList<RecyclerViewInsertRemoveUpdateActivity.Fruit>,
+    val onClick: (fruit: RecyclerViewInsertRemoveUpdateActivity.Fruit,position:Int) -> Unit
+) :
     RecyclerView.Adapter<FruitAdapter.CustomViewHolder>() {
 
 
@@ -22,10 +26,16 @@ class FruitAdapter(val context: Context, val fruits: List<String>) :
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
-        holder.tvFruitName.text = fruits[position]
+        val fruit = fruits[position]
+        holder.tvFruitName.text = fruit.name
+
+        holder.myItemView.setOnClickListener {
+            onClick(fruit,position)
+        }
     }
 
-    class CustomViewHolder(val itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class CustomViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val myItemView = itemView
         val tvFruitName: TextView = itemView.findViewById(R.id.tvFruitName)
     }
 }
