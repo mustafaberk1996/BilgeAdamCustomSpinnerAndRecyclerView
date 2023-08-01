@@ -29,7 +29,6 @@ class UsersActivity : AppCompatActivity() {
      rvUsers = findViewById(R.id.rvUsers)
 
 
-        rvUsers.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rvUsers.adapter = UserAdapter(this, users)
 
 
